@@ -1,0 +1,17 @@
+<h1>Chat</h1>
+<hr />
+<div class="app-mensajes" id="app-mensajes">
+	<div class="text-right" *ngFor="let message of messages | async">
+		<span class="badge badge-primary">Dario</span>
+		<p>{{ message.message }}</p>
+	</div>
+</div>
+<input
+	type="text"
+	name="message"
+	[(ngModel)]="message"
+	(ngModelChange)="printText($event)"
+	class="form-control"
+	(keyup.enter)="sendMessage()"
+	placeholder="Send Message"
+/>
